@@ -26,6 +26,12 @@ We can insert this block like this:
 
 Notice the leading underscore is left out of the block we insert. 
 
+## New pages
+As usual a new page needs:
+- **View**: <viewName>.html.erb in views folder
+- **Controller**: <controllerName>_controller.rb in controllers folder
+- **Routing**: routes.rb in config folder
+
 ## Application helper
 Instead of using javascript to check which page is active we can move this logic to rails using **is_active** in *application_helper.rb*
 
