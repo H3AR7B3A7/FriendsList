@@ -21,6 +21,11 @@
   <body>
 
     <%= render 'layouts/header' %>
+
+    <% if notice %>
+      <%= render 'layouts/alert' %>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>
