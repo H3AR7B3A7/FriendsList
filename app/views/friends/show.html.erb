@@ -14,6 +14,8 @@
   <a href="mailto:<%= @friend.email %>"><%= @friend.email %></a>
   <p>Twitter: <%= @friend.twitter %></p>
 
-  <%= link_to 'Edit', edit_friend_path(@friend), class:"btn btn-dark" %>
-  <%= link_to 'Back', friends_path, class:"btn btn-dark" %>
+  <div class="text-center">
+    <%= link_to 'Edit', edit_friend_path(@friend), class:"btn btn-dark" %>
+    <%= link_to 'Back', friends_path, class:"btn btn-dark" %>
+  </div>
 </div>
