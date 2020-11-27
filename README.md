@@ -1,19 +1,42 @@
+![Ruby version](https://img.shields.io/badge/RUBY-2.7.2-blue)
+
 # Friends List
+Revisitting Ruby on Rails after a long time by making a friendlist application with some help of freeCodeCamp.org. 
 
-* Ruby version
+## Some CLI commands
+We can make use from the CLI to generate a project or modules to make our life easyer. (Similar to what we can do in other frameworks like React, Angular, ...)
 
-* System dependencies
+	rails new friends
+	rails controller home index 
 
-* Configuration
+## Application.html.erb
+Here we keep the structure of our app seperate from the changing content represented by the **<%= yield %>**.
 
-* Database creation
+Everything that doesn't change from page to page in our application can be in here: 
+- metadata
+- styling
+- other code blocks 
+- ...
 
-* Database initialization
+We can create other code blocks by creating a new file under views using the pattern:  
+*_<blockName>.html.erb*  
+We can insert this block like this:
 
-* How to run the test suite
+	<%= render '<pathToBlock>/<blockName>' %>
 
-* Services (job queues, cache servers, search engines, etc.)
+Notice the leading underscore is left out of the block we insert. 
 
-* Deployment instructions
+## Application helper
+Instead of using javascript to check which page is active we can move this logic to rails using **is_active** in *application_helper.rb*
 
-* ...
+	def is_active(action)       
+    	params[:action] == action ? "active" : nil        
+	end
+
+In the list items in our header this logic can be applied like this:
+
+	<li class="nav-item <%=is_active('index')%>">
+    	<%= link_to 'Home', root_path, class:"nav-link" %>
+	</li>
+
+
