@@ -1,3 +1,27 @@
 // Place all the styles related to the friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+a {
+    text-decoration: none ;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bg-danger a {
+	color: white;
+    text-decoration: none ;
+}
+
+.bg-danger a:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bg-danger:hover {
+	background-color: #8b0000 !important;
+} 
