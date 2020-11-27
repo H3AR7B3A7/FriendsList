@@ -1,29 +1,19 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>First name:</strong>
-  <%= @friend.first_name %>
-</p>
+<div class="jumbotron">
+  
+  <h1 class="display-4">
+    <%= @friend.first_name %>
+    <%= @friend.last_name %>
+  </h1>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @friend.last_name %>
-</p>
+  <p class="lead"><%= @friend.phone %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @friend.email %>
-</p>
+  <hr class="my-4">
 
-<p>
-  <strong>Phone:</strong>
-  <%= @friend.phone %>
-</p>
+  <a href="mailto:<%= @friend.email %>"><%= @friend.email %></a>
+  <p>Twitter: <%= @friend.twitter %></p>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @friend.twitter %>
-</p>
-
-<%= link_to 'Edit', edit_friend_path(@friend) %> |
-<%= link_to 'Back', friends_path %>
+  <%= link_to 'Edit', edit_friend_path(@friend), class:"btn btn-dark" %>
+  <%= link_to 'Back', friends_path, class:"btn btn-dark" %>
+</div>
