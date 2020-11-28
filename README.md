@@ -15,10 +15,11 @@ Here we keep the structure of our app seperate from the changing content represe
 Everything that doesn't change from page to page in our application can be in here: 
 - metadata
 - styling
-- other code blocks 
+- partials 
 - ...
 
-We can create other code blocks by creating a new file under views using the pattern:  
+## Partial
+We can create other html blocks, or *partials*, by creating a new file under views using the pattern:  
 *_<blockName>.html.erb*  
 We can insert this block like this:
 
@@ -55,9 +56,52 @@ We use the following CLI command to create a scaffold in *'db/migrate'*:
 
 	rails g scaffold friends first_name:string last_name:string email:string phone:string twitter:string
 
-To create a schema from this scaffold we use this command:
+To create the schema from this scaffold we use this command:
 
 	rails db:migrate
 
 This will not only create a database, but also fully functional CRUD pages to create , update or view entries in *'views/friends'*. This includes even an .scss we deleted in this case because we want to add our own stylign with bootstrap.
+
+## Flash messages
+Whenever something goes wrong with CRUD transactions rails will generate messages. To display these messages it needs some placeholders:
+
+	<%= notice %>
+    <%= alert %>
+
+We can put these anywhere we might need them, so creating a partial we can render anywhere is a good practice.
+
+## Devise
+To add the gem go to [Ruby Gems](https://rubygems.org/) and look for devise. You can easily copy the gemfile code with 'copy to clipboard' and pasting it in the project Gemfile.  
+In the console we use the following command to have the gem installed:
+
+	bundle install
+
+We can find the devise [README](https://github.com/heartcombo/devise) for more information on how to use it.
+
+We will find that we also need to enter the following command in the console:
+
+	rails generate devise:install
+
+Notice that the console will output more instructions:
+- To configure an Action Mailer, to send people a password when they lost it and similar funtionality.  
+
+In *'config/evironments/development.rb'* and *'config/evironments/production.rb'*:
+
+	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+- Make sure we have a root page
+- Make sure we have flash messages like 'notice' and 'alert'.
+- Create devise views.
+
+To create Devise views enter the following in the console:
+
+	rails g devise:views
+
+Devise will also need a *'scaffold'* (or database model) for users, which we can generate with:
+
+	rails generate devise user
+
+To create the schema from this scaffold we use the same command as before:
+
+	rails db:migrate
 
