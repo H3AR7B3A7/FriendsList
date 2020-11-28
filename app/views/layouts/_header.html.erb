@@ -11,18 +11,42 @@
         <%= link_to 'Home', root_path, class:"nav-link" %>
         <!-- <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a> -->
       </li>
-      <li class="nav-item <%=is_active('index')%>">
-        <%= link_to 'Friends', friends_path, class:"nav-link" %>
-        <!-- <a class="nav-link" href="../home/about">About</a> -->
-      </li>
-      <li class="nav-item <%=is_active('new')%>">
-        <%= link_to 'Add Friend', new_friend_url, class:"nav-link" %>
-        <!-- <a class="nav-link" href="../home/about">About</a> -->
-      </li>
+      
+      <% if user_signed_in? %>
+        <li class="nav-item <%=is_active('index')%>">
+          <%= link_to 'Friends', friends_path, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+        <li class="nav-item <%=is_active('new')%>">
+          <%= link_to 'Add Friend', new_friend_url, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+      <% end %>
       <li class="nav-item <%=is_active('about')%>">
       	<%= link_to 'About', home_about_path, class:"nav-link" %>
         <!-- <a class="nav-link" href="../home/about">About</a> -->
       </li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item <%=is_active('edit')%>">
+          <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+        <li class="nav-item <%=is_active('sign_out')%>">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+      <% else %>
+        <li class="nav-item <%=is_active('sign_up')%>">
+          <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+        <li class="nav-item <%=is_active('sign_in')%>">
+          <%= link_to 'Sign In', new_user_session_path, class:"nav-link" %>
+          <!-- <a class="nav-link" href="../home/about">About</a> -->
+        </li>
+      <% end %>
+
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
