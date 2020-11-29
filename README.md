@@ -1,5 +1,5 @@
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786520837-70cbbf11df42c0cda632ec56?label=FRIENDS%20LIST&style=for-the-badge)](https://efriends.herokuapp.com) 
-![RUBY version](https://img.shields.io/badge/RUBY-2.7.2-blue)
+![RUBY version](https://img.shields.io/badge/RUBY-2.7.2-blue)  
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786520837-70cbbf11df42c0cda632ec56?label=FRIENDS%20LIST&style=for-the-badge)](https://efriends.herokuapp.com)
 
 # Ruby On Rails: Friends List
 Revisitting Ruby on Rails after a long time by making a ['Friends List'](https://efriends.herokuapp.com/) application with some help of freeCodeCamp.org.
