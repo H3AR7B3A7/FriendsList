@@ -8,20 +8,24 @@ a {
 
 a:hover {
     text-decoration: none;
-    cursor: pointer;
 }
 
-.bg-danger a {
+.bg-danger a, .bg-secondary a {
 	color: white;
-    text-decoration: none ;
+    text-decoration: none;
 }
 
-.bg-danger a:hover {
+.bg-danger a:hover, .bg-secondary a:hover {
     color: white;
     text-decoration: none;
-    cursor: pointer;
+}
+
+.bg-secondary:hover {
+	background-color: #23272B !important;
+	cursor: pointer;
 }
 
 .bg-danger:hover {
 	background-color: #8b0000 !important;
+	cursor: pointer;
 } 
