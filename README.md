@@ -3,16 +3,20 @@
 # Ruby On Rails: Friends List
 Revisitting Ruby on Rails after a long time by making a friendlist application with some help of freeCodeCamp.org.  
   
-[Official Guides](https://guides.rubyonrails.org/)
-
-## Some CLI commands
+[Official Guides](https://guides.rubyonrails.org/)  
+  
 We can make use from the CLI to generate a project or modules to make our life easyer. (Similar to what we can do in other frameworks like React, Angular, ...)
+  
+To create a new project:
 
-	rails new 
+	rails new <Name>
+
+To start the server:
+
 	rails s
 
 ## Application.html.erb
-Here we keep the structure of our app seperate from the changing content represented by the **<%= yield %>**.
+Here we keep the structure of our app seperate from the changing content represented by: **<%= yield %>**.
 
 Everything that doesn't change from page to page in our application can be in here: 
 - metadata
@@ -21,8 +25,10 @@ Everything that doesn't change from page to page in our application can be in he
 - ...
 
 ## Partial
-We can create other html blocks, or *partials*, by creating a new file under views using the pattern:  
-*_<blockName>.html.erb*  
+We can create other html blocks, or *partials*, by creating a new file under views using the pattern:
+
+	*_<blockName>.html.erb*
+
 We can insert this block like this:
 
 	<%= render '<pathToBlock>/<blockName>' %>
@@ -31,8 +37,8 @@ Notice the leading underscore is left out of the block we insert.
 
 ## New pages
 As usual a new page needs:
-- **View**: <viewName>.html.erb in views folder
-- **Controller**: <controllerName>_controller.rb in controllers folder
+- **View**: viewName.html.erb in views folder
+- **Controller**: controllerName_controller.rb in controllers folder
 - **Routing**: routes.rb in config folder
 
 We can do this manually, but this CLI command will do this for us: 
@@ -129,7 +135,8 @@ And after a migration we use the same command as before again:
 We also need to add *:user_id* to the list of trusted parameters in *friends_controller.rb* and add a hidden field to *_form.html.erb*:
 
 	<div class="field">
-		<%= form.number_field :user_id, id: :friend_user_id , class:"form-control", value:current_user.id, type: :hidden %>
+		<%= form.number_field :user_id, id: :friend_user_id,
+		class:"form-control", value:current_user.id, type: :hidden %>
 	</div>
 
 We can prevent usage of the api by adding the following line to the top of *friends_controller.rb*:
@@ -204,10 +211,13 @@ And some dialog to your *'application.html.erb'*:
 	        <span id="modal-content"></span>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
-	        <button type="button" class="btn btn-sm btn-primary" id='ok-button'><i class="fa fa-check"></i> Continue</button>
+	        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+	        	<i class="fa fa-times-circle"></i> Cancel
+	        </button>
+	        <button type="button" class="btn btn-sm btn-primary" id='ok-button'>
+	        	<i class="fa fa-check"></i> Continue
+	        </button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-
