@@ -1,7 +1,8 @@
-![Ruby version](https://img.shields.io/badge/RUBY-2.7.2-blue)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786520837-70cbbf11df42c0cda632ec56?label=Friend%20List&style=for-the-badge)](https://efriends.herokuapp.com/) 
+<img style align="right" src:"https://img.shields.io/badge/RUBY-2.7.2-blue" alt="version">
 
 # Ruby On Rails: Friends List
-Revisitting Ruby on Rails after a long time by making a ['Friends List'](https://efriends.herokuapp.com/) application with some help of freeCodeCamp.org. Be sure to check out the example by clicking the ['Friends List'](https://efriends.herokuapp.com/) link.
+Revisitting Ruby on Rails after a long time by making a ['Friends List'](https://efriends.herokuapp.com/) application with some help of freeCodeCamp.org.
   
 [Official Guides](https://guides.rubyonrails.org/)  
   
