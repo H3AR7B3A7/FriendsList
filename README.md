@@ -1,4 +1,4 @@
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786520837-70cbbf11df42c0cda632ec56?label=Friend%20List&style=for-the-badge)](https://efriends.herokuapp.com/)
+<img alt="Uptime Robot status" src="https://img.shields.io/uptimerobot/status/m786520837-70cbbf11df42c0cda632ec56?label=FRIENDS%20LIST&style=for-the-badge" href:"https://efriends.herokuapp.com">
 <img src:"https://img.shields.io/badge/RUBY-2.7.2-blue" alt="version">
 
 # Ruby On Rails: Friends List
