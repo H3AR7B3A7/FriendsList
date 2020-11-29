@@ -1,7 +1,7 @@
 ![Ruby version](https://img.shields.io/badge/RUBY-2.7.2-blue)
 
 # Ruby On Rails: Friends List
-Revisitting Ruby on Rails after a long time by making a friendlist application with some help of freeCodeCamp.org.  
+Revisitting Ruby on Rails after a long time by making a ['Friends List'](https://efriends.herokuapp.com/) application with some help of freeCodeCamp.org. Be sure to check out the example by clicking the ['Friends List'](https://efriends.herokuapp.com/) link.
   
 [Official Guides](https://guides.rubyonrails.org/)  
   
