@@ -1,7 +1,9 @@
 ![Ruby version](https://img.shields.io/badge/RUBY-2.7.2-blue)
 
-# Friends List
-Revisitting Ruby on Rails after a long time by making a friendlist application with some help of freeCodeCamp.org. 
+# Ruby On Rails: Friends List
+Revisitting Ruby on Rails after a long time by making a friendlist application with some help of freeCodeCamp.org.  
+  
+[Official Guides](https://guides.rubyonrails.org/)
 
 ## Some CLI commands
 We can make use from the CLI to generate a project or modules to make our life easyer. (Similar to what we can do in other frameworks like React, Angular, ...)
@@ -104,4 +106,69 @@ Devise will also need a *'scaffold'* (or database model) for users, which we can
 To create the schema from this scaffold we use the same command as before:
 
 	rails db:migrate
+
+We can use the following handle to only display certain html code when the user is logged in by using *'if'* statements:
+
+	user_signed_in?
+
+## Associations
+[Official Guide: Associations](https://guides.rubyonrails.org/association_basics.html)
+  
+In the *models* folder we make these associations:
+- **friend.rb**: belongs_to :user
+- **user.rb**: has_many :friends
+
+We also want to add a user id to our friends table so our schema keeps track of who the 'friends' belong to. For this we enter the following in our console:
+
+	rails g migration add_user_id_to_friends user_id:integer:index
+
+And after a migration we use the same command as before again:
+
+	rails db:migrate
+
+We also need to add *:user_id* to the list of trusted parameters in *friends_controller.rb* and add a hidden field to *_form.html.erb*:
+
+	<div class="field">
+		<%= form.number_field :user_id, id: :friend_user_id , class:"form-control", value:current_user.id, type: :hidden %>
+	</div>
+
+We can prevent usage of the api by adding the following line to the top of *friends_controller.rb*:
+
+	before_action :authenticate_user!
+
+Likewise we want to prevent users from editing friend records of other users:
+
+	before_action :correct_user, only: [:edit, :update, :destroy]
+
+We define *'correct user'* like this:
+
+	def correct_user
+	    @friend = current_user.friends.find_by(id: params[:id])
+	    redirect_to friends_path, notice: "Not authorized to edit this entry" if @friend.nil?
+	end
+
+We want to update the *new* and *create* methods too:
+
+	def new
+	  @friend = current_user.friends.build
+	end
+
+	def create
+	  @friend = current_user.friends.build(friend_params)
+	  respond_to do |format|
+	    if @friend.save
+	      format.html { redirect_to @friend, notice: 'Friend was successfully created.' }
+	      format.json { render :show, status: :created, location: @friend }
+	    else
+	      format.html { render :new }
+	      format.json { render json: @friend.errors, status: :unprocessable_entity }
+	    end
+	  end
+	end
+
+And finally we need to update the querry to only show friends with the right user id if we don't want other people to see the friends from other users.
+
+	def index
+    	@friends = Friend.where(:user_id => current_user.id)
+	end
 
