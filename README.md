@@ -172,3 +172,42 @@ And finally we need to update the querry to only show friends with the right use
     	@friends = Friend.where(:user_id => current_user.id)
 	end
 
+## Custom dialog
+
+For a custom dialog add the following to *'application.js'*:
+
+	import Rails from "@rails/ujs";
+	Rails.confirm = function(message, element) {
+	  let $element = $(element)
+	  let $dialog = $('#confirmation-modal')
+	  let $content = $dialog.find('#modal-content')
+	  let $ok = $dialog.find('#ok-button')
+	  $content.text(message)
+	  $ok.click(function(event) {
+	      event.preventDefault()
+	      $dialog.modal("hide")
+	      let old = Rails.confirm
+	      Rails.confirm = function() { return true }
+	      $element.get(0).click()
+	      Rails.confirm = old
+	    })
+	  $dialog.modal("show")
+	  return false;
+	}
+
+And some dialog to your *'application.html.erb'*:
+
+	<div class="modal fade" id="confirmation-modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <span id="modal-content"></span>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+	        <button type="button" class="btn btn-sm btn-primary" id='ok-button'><i class="fa fa-check"></i> Continue</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
