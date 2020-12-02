@@ -222,3 +222,11 @@ And some dialog to your *'application.html.erb'*:
 	    </div>
 	  </div>
 	</div>
+
+## Favicon
+To add a favicon we add the file to the *'assets/images'* folder and simply add the following line to the head in *'application.html.erb'*:
+
+	<%= favicon_link_tag asset_path('image-name.png') %>
+
+## Custom error pages
+We can simply find the error pages in the *'public'* folder and edit them to our liking.
