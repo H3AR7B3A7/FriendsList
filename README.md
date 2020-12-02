@@ -230,3 +230,29 @@ To add a favicon we add the file to the *'assets/images'* folder and simply add 
 
 ## Custom error pages
 We can simply find the error pages in the *'public'* folder and edit them to our liking.
+
+## Hosting an application on Heroku
+- Make sure we are using a solid database like PostgreSQL for the production environment instead of sqlite3.
+- Install Heroku toolbelt
+- Login to Heroku:
+
+	heroku login
+
+- Create an application on Heroku:
+
+	heroku create
+	heroku rename name
+
+- Add SSL protection to the project:
+
+	heroku keys:add
+
+- Push the application to heroku:
+
+	git push heroku master
+
+- Migrate the database:
+
+	heroku run rails db:migrate
+
+Et voilà ...
